@@ -18,6 +18,7 @@ export class LaunchPage {
         await this.page.goto(process.env.BASE_URL!);
     }
     async clickDropDown() {
+        await expect(this.myaccountdrpdwn).toBeVisible();
         await this.myaccountdrpdwn.click();
     }
     async clickLoginOption() {
