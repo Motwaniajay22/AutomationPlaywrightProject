@@ -13,7 +13,8 @@ import path from "path"
 //dotenv.config({path : process.env.ENV_NAME ? `./env-files/.env.${process.env.ENV_NAME}` : `./env-files/.env`});
 
 
-dotenv.config({ path: path.resolve(__dirname, 'env-files/.env.QA') });
+//dotenv.config({ path: path.resolve(__dirname, 'env-files/.env.QA') });
+dotenv.config({ path: path.resolve(process.cwd(), 'env-files/.env.QA') });
 
 
 /**
