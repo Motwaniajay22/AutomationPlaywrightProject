@@ -6,36 +6,16 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                url: 'https://github.com/Motwaniajay22/AutomationPlaywrightProject.git'
-            }
-        }
-
-        stage('Install Dependencies') {
+        stage('Install') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Install Playwright Browsers') {
-            steps {
-                sh 'npx playwright install'
-            }
-        }
-
-        stage('Run Tests') {
+        stage('Test') {
             steps {
                 sh 'npx playwright test'
             }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: '**/test-results/**', allowEmptyArchive: true
         }
     }
 }
