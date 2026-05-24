@@ -1,5 +1,12 @@
 pipeline {
     agent any
+    environment {
+        BASE_URL = "https://tutorialsninja.com/demo"
+        USER_EMAIL = "ajm@gmail.com"
+        USER_PASSWORD = "2222"
+        INVALID_USER = "al@gmail.co"
+        INVALID_PASSWORD = "3323"
+    }
 
     stages {
 
