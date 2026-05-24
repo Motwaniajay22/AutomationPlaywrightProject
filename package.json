@@ -1,0 +1,23 @@
+{
+  "name": "automationplaywrighproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test_chromium": "cross-env ENV_NAME=QA npx playwright test --headed --project=Chromium",
+    "test_firefox": "cross-env ENV_NAME=QA npx playwright test --headed --project=firefox"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "allure-playwright": "^3.9.0"
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2"
+  }
+}

@@ -1,0 +1,28 @@
+import { Locator, Page } from "@playwright/test";
+
+export class LoginPage {
+
+    readonly page: Page;
+    readonly email: Locator;
+    readonly password: Locator;
+    readonly loginbtn: Locator;
+    readonly invalidloginerr: Locator;
+
+    constructor(page: Page) {
+        this.page = page;
+        this.email = page.locator("#input-email");
+        this.password = page.locator("#input-password");
+        this.loginbtn = page.getByRole('button', { name: 'Login' });
+        this.invalidloginerr = page.locator('.alert-danger');
+
+    }
+
+    async loginUrl() {
+        await this.page.goto("/index.php?route=account/login");
+    }
+    async loginToApp(username: string, userpassword: string) {
+        await this.email.fill(username);
+        await this.password.fill(userpassword);
+        await this.loginbtn.click();
+    }
+}
