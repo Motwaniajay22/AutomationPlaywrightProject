@@ -14,7 +14,11 @@ import path from "path"
 
 
 //dotenv.config({ path: path.resolve(__dirname, 'env-files/.env.QA') });
-dotenv.config({ path: path.resolve(process.cwd(), 'env-files/.env.QA') });
+dotenv.config({
+  path: path.resolve(process.cwd(), `env-files/.env.${process.env.ENV_NAME || 'QA'}`)
+});
+console.log("ENV FILE LOADED FOR:", process.env.ENV_NAME || "QA");
+console.log("BASE_URL:", process.env.BASE_URL);
 
 
 /**
