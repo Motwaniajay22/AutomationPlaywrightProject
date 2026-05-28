@@ -15,10 +15,9 @@ test("TC_002 Invalid Login", { tag: '@regression' }, async ({ launchPage, loginP
     await expect(loginPage.invalidloginerr).toContainText(/No match|exceeded/);
 });
 
-test.only("TC_003 verify forgot password", { tag: '@regression' }, async ({ page, launchPage, loginPage, forgotpasswordpage }) => {
+test("TC_003 verify forgot password", { tag: '@regression' }, async ({launchPage, loginPage, forgotpasswordpage }) => {
     await launchPage.clickDropDown();
     await launchPage.clickLoginOption();
-
     await loginPage.forgotPasswordClick();
     await forgotpasswordpage.enterEmail("ajm@gmail.com");
     await forgotpasswordpage.continueButtonClick();
