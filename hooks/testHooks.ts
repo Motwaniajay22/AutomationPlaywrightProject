@@ -19,8 +19,9 @@ test.afterEach(async ({ page }, testInfo) => {
             fullPage: true
         });
 
-        await testInfo.attach("Failure screenshot", {
+        await testInfo.attach("Failure Screenshot", {
             body: screenshot,
+            path: `test-results/${testInfo.title}.png`,
             contentType: "image/png"
         });
 
