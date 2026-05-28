@@ -1,4 +1,4 @@
-import { test } from "../custom-fixtures/PageFixtures"
+import { test } from "../custom-fixtures/baseTest"
 
 //Before each test
 test.beforeEach(async ({ launchPage }, testInfo) => {

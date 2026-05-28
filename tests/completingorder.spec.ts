@@ -1,7 +1,8 @@
 import "../hooks/testHooks";
-import { test, expect } from "../custom-fixtures/PageFixtures";
+import { test, expect } from "../custom-fixtures/baseTest";
 
-test('Verify end to end order completon', async ({launchPage,loginPage,myaccountpage,productsearchpage,productdetailpage }) => {
+test.only('TC_001 Verify end to end order completion',{tag:['@regression', '@smoke']}, 
+    async ({page,launchPage,loginPage,myaccountpage,productsearchpage,productdetailpage, ordersuccesspage }) => {
 
     await launchPage.clickDropDown();
     await launchPage.clickLoginOption();
@@ -20,6 +21,19 @@ test('Verify end to end order completon', async ({launchPage,loginPage,myaccount
     console.log(await productdetailpage.successmsg.textContent());
     console.log('total items', await productdetailpage.totalitems.textContent());
     await productdetailpage.itemCartButton();
+    await productdetailpage.checkOutClick();
+    await productdetailpage.bilingDeatailContinueButton();
+    await productdetailpage.deliveryDetailContinueButton();
+    await productdetailpage.deliveryMethodContinueButton();
+    await productdetailpage.termsConditionChecked();
+    await productdetailpage.paymentDoneContinueButton();
+    await productdetailpage.orderConfirmContinueButton();
+
+    //assertion
+    await   ordersuccesspage.orderPlacedSuccssMsg();
+    
+
+    
 
 
 

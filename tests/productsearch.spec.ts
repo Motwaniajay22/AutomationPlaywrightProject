@@ -1,8 +1,8 @@
 import "../hooks/testHooks";
-import { test, expect } from "../custom-fixtures/PageFixtures";
+import { test, expect } from "../custom-fixtures/baseTest";
 
 
-test("Verify product text after search", async ({ launchPage, loginPage, myaccountpage, productsearchpage }) => {
+test("TC_001 Verify product text after search",{tag:["@regression"]}, async ({ launchPage, loginPage, myaccountpage, productsearchpage }) => {
     await launchPage.clickDropDown();
     await launchPage.clickLoginOption();
     await loginPage.loginToApp(process.env.USER_EMAIL!, process.env.USER_PASSWORD!);

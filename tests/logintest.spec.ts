@@ -1,14 +1,14 @@
 import "../hooks/testHooks";
-import { test, expect } from "../custom-fixtures/PageFixtures"
+import { test, expect } from "../custom-fixtures/baseTest"
 
-test("Valid Login",{tag:['@smoke','@regression']}, async ({ launchPage, loginPage, myaccountpage}) => {
+test("TC_001 Valid Login",{tag:['@smoke','@regression']}, async ({ launchPage, loginPage, myaccountpage}) => {
     await launchPage.clickDropDown();
     await launchPage.clickLoginOption();
     await loginPage.loginToApp(process.env.USER_EMAIL!, process.env.USER_PASSWORD!);
     await expect(myaccountpage.loginsucces).toContainText("My Account");
 });
 
-test("Invalid Login",{tag: '@regression'}, async ({ launchPage, loginPage }) => {
+test("TC_002 Invalid Login",{tag: '@regression'}, async ({ launchPage, loginPage }) => {
     await launchPage.clickDropDown();
     await launchPage.clickLoginOption();
     await loginPage.loginToApp("dd", "SA");

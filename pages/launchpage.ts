@@ -9,7 +9,7 @@ export class LaunchPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.myaccountdrpdwn = page.locator('#top a[title="My Account"]');
+       this.myaccountdrpdwn = page.locator('#top a[title="My Account"]');
         this.loginoption = page.getByRole('link', { name: 'Login' });
         this.dropdownoptn = page.locator(".dropdown-menu.dropdown-menu-right a");
     }

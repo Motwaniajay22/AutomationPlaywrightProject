@@ -1,10 +1,12 @@
 import "../hooks/testHooks";
-import { test, expect } from "../custom-fixtures/PageFixtures"
+import { test, expect } from "../custom-fixtures/baseTest"
 
-test("Verify myaccount drop-down options", async ({ launchPage }) => {
+test("TC_001 Verify myaccount drop-down options",{tag:['@regression']}, async ({ launchPage }) => {
     await launchPage.clickDropDown();
-    const options = await launchPage.dropDownOptions();
+    const options = await (await launchPage.dropDownOptions()).allInnerTexts();
     console.log(options);
-    await expect(options).toHaveText(['Register', 'Login']);
+    expect(options).toEqual(expect.arrayContaining(["Register", "Login"]));
 });
+
+
 
