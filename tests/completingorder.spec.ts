@@ -1,7 +1,7 @@
 import "../hooks/testHooks";
 import { test, expect } from "../custom-fixtures/baseTest";
 
-test.only('TC_001 Verify end to end order completion',{tag:['@regression', '@smoke']}, 
+test('TC_001 Verify end to end order completion',{tag:['@regression', '@smoke']}, 
     async ({page,launchPage,loginPage,myaccountpage,productsearchpage,productdetailpage, ordersuccesspage }) => {
 
     await launchPage.clickDropDown();
@@ -30,7 +30,7 @@ test.only('TC_001 Verify end to end order completion',{tag:['@regression', '@smo
     await productdetailpage.orderConfirmContinueButton();
 
     //assertion
-    await   ordersuccesspage.orderPlacedSuccssMsg();
+    await ordersuccesspage.orderPlacedSuccssMsg();
     
 
     

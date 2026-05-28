@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class LoginPage {
 
@@ -7,6 +7,8 @@ export class LoginPage {
     readonly password: Locator;
     readonly loginbtn: Locator;
     readonly invalidloginerr: Locator;
+    readonly forgotlink:Locator;
+    readonly forgotpasswordmsg:Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -14,6 +16,8 @@ export class LoginPage {
         this.password = page.locator("#input-password");
         this.loginbtn = page.getByRole('button', { name: 'Login' });
         this.invalidloginerr = page.locator('.alert-danger');
+        this.forgotlink = page.getByRole('link',{name :'Forgotten Password'}).first();
+        this.forgotpasswordmsg = page.locator(".alert-dismissible");
 
     }
 
@@ -24,5 +28,11 @@ export class LoginPage {
         await this.email.fill(username);
         await this.password.fill(userpassword);
         await this.loginbtn.click();
+    }
+    async forgotPasswordClick(){
+        await this.forgotlink.click();
+    }
+    async forgotPasswordMailSentMsg(){
+      await expect ( this.forgotpasswordmsg).toHaveText("An email with a confirmation link has been sent your email address.");
     }
 }

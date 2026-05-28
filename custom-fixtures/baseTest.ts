@@ -5,6 +5,7 @@ import { MyAccountPage } from "../pages/myaccountpage"
 import { ProductSearchPage } from "../pages/productsearchpage"
 import { ProductDetailPage } from "../pages/productdetailpage"
 import { OrderSuccessPage } from "../pages/ordersuccespage"
+import { ForgotPasswordPage } from "../pages/fogotpasswordpage" 
 
 type PageFixtures = {
     launchPage: LaunchPage;
@@ -13,6 +14,7 @@ type PageFixtures = {
     productsearchpage: ProductSearchPage;
     productdetailpage: ProductDetailPage;
     ordersuccesspage:OrderSuccessPage;
+    forgotpasswordpage:ForgotPasswordPage;
 };
 export const test = base.extend<PageFixtures>({
     launchPage: async ({ page }, use) => {
@@ -34,6 +36,9 @@ export const test = base.extend<PageFixtures>({
     },
     ordersuccesspage: async({page},use) => {
         await use(new OrderSuccessPage(page));
+    },
+    forgotpasswordpage: async({page},use) =>{
+        await use(new ForgotPasswordPage(page));
     }
 
 });
